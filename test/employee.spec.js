@@ -1,16 +1,14 @@
-import  request  from 'supertest';
-import { expect } from 'chai';
-import app from '../app/app.js';
+import request from 'supertest'
+import { expect } from 'chai'
+import app from '../app/app.js'
 
-describe(' /employees', () => {
+describe('/employees', () => {
     it.only('GET /employees', async () => {
-        const res = request(app)
+        const res = await request(app)
             .get('/employees')
 
-        expect(res.body.data).to.be.an('array');
-        expect(res.body.data).to.have.lengthOf.at.least(2);
-        expect(res.body.data[0]).to.have.property('name');
+        expect(res.body.data).to.be.an('array')
+        expect(res.body.data).to.have.lengthOf.at.least(2)
+        expect(res.body.data[0]).to.have.property('name')
     })
-})
-
-
+}) 
